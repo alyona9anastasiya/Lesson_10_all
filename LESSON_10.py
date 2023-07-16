@@ -34,9 +34,8 @@ fil_2.write("Lorem ipsum dolor sit amet, consectetur adipiscing elit,\n"
 fil_2.close()
 with open("new_file.txt", "w") as file:
     fil_2 = open("my_file.txt", "r")
-    lines = fil_2.readlines()
-    for line in lines:
-        file.write(line.upper())
+    text = fil_2.read()
+    file.write(text.upper())
 file.close()
 
 #3.Write a program that will simulate user scores in a game.
@@ -54,10 +53,10 @@ file.close()
 import csv, random
 
 players = [['Josh'], ['Luke'], ['Kate'], ['Mark'], ['Mary']]
-rounds = 0
+score = 0
 for i in players:
     for roun in range(100):
-        score = random.randint(0, 1000)
+        score += random.randint(0, 1000)
     players[players.index(i)].append(score)
 
 with open('players.csv', "w", encoding='UTF8', newline='') as file:
